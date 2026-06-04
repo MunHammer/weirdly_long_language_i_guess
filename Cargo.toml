@@ -1,0 +1,27 @@
+[package]
+name = "weirdly_long_language_i_guess"
+version = "0.1.0"
+edition = "2024"
+authors = ["Mun_Hammer"]
+description = "An esolang where you NEED screenspace"
+keywords = ["compiler", "CLI", "WIP"]
+publish = false
+license = "MIT"
+readme = "README.md"
+
+[dependencies]
+clap = { version = "4.6.1", optional = true, features = ["derive"] }
+
+[dev-dependencies]
+rstest = "0.26.1"
+
+[features]
+default = ["cli"]
+cli = ["dep:clap"]
+
+[lints.clippy]
+cargo = "warn"
+pedantic = "warn"
+
+[lints.rust]
+missing_docs = "warn"
