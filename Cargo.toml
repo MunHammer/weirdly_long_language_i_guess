@@ -7,7 +7,7 @@ description = "An esolang where you NEED screenspace"
 keywords = ["compiler", "CLI", "WIP"]
 publish = false
 license = "MIT"
-readme = "README.md"
+readme = "remarks.markdown"
 
 [dependencies]
 clap = { version = "4.6.1", optional = true, features = ["derive"] }

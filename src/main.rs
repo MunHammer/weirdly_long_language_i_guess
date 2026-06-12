@@ -1,4 +1,4 @@
-#![doc = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/README.md"))]
+#![doc = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/remarks.markdown"))]
 use weirdly_long_language_i_guess::Result;
 #[cfg(feature = "cli")]
 mod cli {
