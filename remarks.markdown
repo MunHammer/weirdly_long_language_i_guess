@@ -15,5 +15,9 @@
   ./weirdly_long_language_i_guess --help
 ```
 
+## Examples
+- [hello.veryverylong](long_examples/hello.veryverylong): Prints "Hello, World!".
+- [fibonacci.veryverylong](long_examples/fibonacci.veryverylong): Prints the Fibonacci sequence.
+
 ## Limitation
 - The implementation has not been fully written yet.

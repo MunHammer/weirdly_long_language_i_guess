@@ -1,0 +1,42 @@
+/* I will add Rust equivalents to each function, before the function, with the names shortened */
+
+/*
+ * use std::env;
+ * fn main() {
+ *     let argv: Vec<String> = env::args().collect();
+ *     please_generate_the_fibonacci_sequence(argv[1].parse())
+ * }
+ */
+FunctionDefinitionsAreLong arguments_given_by_user: listOfThingsSuchAsStrings<seriesOfBytesCalledAString> main_functions_are_too:
+         (number_of_numbers_to_generate: (original_content_that_will_be_changed: (collection_to_get_item_n_from: arguments_given_by_user, item_number_to_get_from_collection: 1, get_n_item_from_collection), integerThatIsUnsignedEight::make_this_from_a_string), please_generate_the_fibonacci_sequence)
+
+/*
+ * fn please_generate_the_fibonacci_sequence(nums_to_gen: u8) {
+ *     let a = 0;
+ *     let b = 1;
+ *     for _ in 0..nums_to_gen {
+ *         println!("{a}");
+ *         a += b
+ *         println!("{b}");
+ *         b += a
+ *     }
+ * }
+ */
+FunctionDefinitionUnlikeTheLast number_of_numbers_to_generate: integerThatIsUnsignedEight please_generate_the_fibonacci_sequence:
+
+         /*
+          * We create two variables here, and this is a comment
+          */
+
+         LetThisVariableExistPlease number_one_or_a_or_something, 0
+         PleaseLetThisExistHere number_b_or_2_or_something, 1
+
+         PleaseMakeALoopForEach ____________________ InTheSuperCoolIterator 0..number_of_numbers_to_generate:
+
+                  (string_to_print_argument: (original_content_that_will_be_changed: number_one_or_a_or_something, seriesOfBytesCalledAString::make_this_from_an_integer), print_line_here_please)
+
+                  SetThisVariableToSomethingElse number_one_or_a_or_something, (other_number_to_add_with: number_b_or_2_or_something, number_one_or_a_or_something.add_with_another_integer)
+
+                  (string_to_print_argument: (original_content_that_will_be_changed: number_b_or_2_or_something, seriesOfBytesCalledAString::make_this_from_an_integer), print_line_here_please)
+
+                  SetThisVariableToSomethingElse number_b_or_2_or_something, (other_number_to_add_with: number_one_or_a_or_something, number_b_or_2_or_something.add_with_another_integer)
