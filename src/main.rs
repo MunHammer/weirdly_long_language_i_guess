@@ -1,5 +1,5 @@
 #![doc = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/README.md"))]
-use weirdly_long_language_i_guess::LongLanguageResult;
+use weirdly_long_language_i_guess::Result;
 #[cfg(feature = "cli")]
 mod cli {
     #[allow(clippy::wildcard_imports)]
@@ -17,7 +17,7 @@ mod cli {
         #[arg(short = 'l', long)]
         short_license: bool,
     }
-    pub(crate) fn run() -> LongLanguageResult<()> {
+    pub(crate) fn run() -> Result<()> {
         let cli = Cli::parse();
         if cli.long_license {
             println!(
@@ -35,7 +35,7 @@ mod cli {
         Ok(())
     }
 }
-fn main() -> LongLanguageResult<()> {
+fn main() -> Result<()> {
     #[cfg(not(feature = "cli"))]
     compile_error!("Can't build binary without cli feature");
     #[cfg(feature = "cli")]

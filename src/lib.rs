@@ -1,3 +1,3 @@
 #![doc = include_str!(concat!(env!("CARGO_MANIFEST_DIR"), "/README.md"))]
-pub mod error;
-pub use error::{LongLanguageError, LongLanguageResult};
+mod error;
+pub use error::{Error, ErrorKind, Result};
