@@ -12,7 +12,7 @@ pub enum ErrorKind {
 #[derive(Debug)]
 pub struct Error {
     /// The type of error
-    kind: ErrorKind,
+    pub kind: ErrorKind,
     /// The line at which the error occured
     line: usize,
     /// The character at which the error occured
@@ -23,6 +23,12 @@ pub type Result<T> = std::result::Result<T, Error>;
 impl From<std::io::Error> for ErrorKind {
     fn from(error: std::io::Error) -> Self {
         Self::IO(error.kind())
+    }
+}
+impl From<regex::Error> for ErrorKind {
+    fn from(error: regex::Error) -> Self {
+        dbg!(error);
+        Self::Syntax
     }
 }
 
