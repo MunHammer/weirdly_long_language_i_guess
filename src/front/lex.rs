@@ -38,8 +38,10 @@ pub enum TokenKind {
     Number(BigUint),
 
     // statement delimeters
-    /// A space (used for control flow delineation, like Python)
-    Space,
+    /// ## Used For:
+    /// - Control flow delineation, like Python
+    /// - Keyword/identifier separation, like most languages
+    Space { amount: u8 },
     /// A statement terminator (a newline)
     Terminator,
 }
@@ -83,10 +85,6 @@ impl super::SourceProgram {
             (
                 Regex::new("^,").expect("Pattern should be correct"),
                 TokenKind::Comma,
-            ),
-            (
-                Regex::new("^ ").expect("Pattern should be correct"),
-                TokenKind::Space,
             ),
             (
                 Regex::new(r"^\n").expect("Pattern should be correct"),
@@ -137,9 +135,11 @@ impl super::SourceProgram {
         }
         Ok(None)
     }
+    /// Lexes spaces, and Identifiers
     #[must_use]
-    fn lex_identifier_token(&mut self, pos: &(usize, usize)) -> Option<(Token, usize)> {
+    fn lex_variable_token(&mut self, pos: &(usize, usize)) -> Option<(Token, usize)> {
         let regex = Regex::new(r"^[_A-Za-z]{19,}[_A-Za-z0-9]+").expect("Pattern should be correct");
+        let space = Regex::new("^ +").expect("Pattern should be correct");
         if let Some(match_found) = regex.find(&self.0) {
             let drained: String = self.0.drain(0..match_found.end()).collect();
             return Some((
@@ -149,6 +149,19 @@ impl super::SourceProgram {
                     character: pos.1,
                 },
                 drained.len(),
+            ));
+        } else if let Some(match_found) = space.find(&self.0) {
+            let length = match_found.end();
+            self.0.drain(0..length);
+            return Some((
+                Token {
+                    kind: TokenKind::Space {
+                        amount: length as u8 + 1,
+                    },
+                    line: pos.0,
+                    character: pos.1,
+                },
+                length,
             ));
         }
         None
@@ -192,7 +205,7 @@ impl super::SourceProgram {
                 stream.0.push(token);
                 pos.1 += self.0.drain(0..length).collect::<String>().len();
                 passed = true;
-            } else if let Some((token, length)) = self.lex_identifier_token(&pos) {
+            } else if let Some((token, length)) = self.lex_variable_token(&pos) {
                 stream.0.push(token);
                 pos.1 = length;
                 passed = true;

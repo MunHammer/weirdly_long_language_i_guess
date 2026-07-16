@@ -1,5 +1,6 @@
 //! The frontend of the compiler
 pub mod lex;
+pub use lex::TokenStream;
 /// The source code of a program
 pub struct SourceProgram(pub String);
 impl SourceProgram {
