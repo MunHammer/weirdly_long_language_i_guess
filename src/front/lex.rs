@@ -46,7 +46,7 @@ pub enum TokenKind {
     Terminator,
 }
 /// A single `weirdly_long_language_i_guess` token
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub struct Token {
     /// The kind of token
     pub kind: TokenKind,
