@@ -2,7 +2,7 @@
 name = "weirdly_long_language_i_guess"
 version = "0.1.0"
 edition = "2024"
-authors = ["Mun_Hammer"]
+authors = ["MunHammer <munhammer@munhammer.com>"]
 description = "An esolang where you NEED screenspace"
 keywords = ["compiler", "CLI", "WIP"]
 publish = false
